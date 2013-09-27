@@ -1,0 +1,29 @@
+<%= form_for(@applist) do |f| %>
+  <% if @applist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@applist.errors.count, "error") %> prohibited this applist from being saved:</h2>
+
+      <ul>
+      <% @applist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :applink %><br>
+    <%= f.text_field :applink %>
+  </div>
+  <div class="field">
+    <%= f.label :appname %><br>
+    <%= f.text_field :appname %>
+  </div>
+  <div class="field">
+    <%= f.label :appdescr %><br>
+    <%= f.text_area :appdescr %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
