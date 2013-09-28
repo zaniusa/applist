@@ -1,31 +1,26 @@
-<h1>Listing applists</h1>
+<div class="page-header">
+  <h1>List of your Apps</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Applink</th>
-      <th>Appname</th>
-      <th>Appdescr</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= link_to "Add New App Link", new_applist_path, class: "btn btn-success" %><br /><br />
 
-  <tbody>
-    <% @applists.each do |applist| %>
-      <tr>
-        <td><%= applist.applink %></td>
-        <td><%= applist.appname %></td>
-        <td><%= applist.appdescr %></td>
-        <td><%= link_to 'Show', applist %></td>
-        <td><%= link_to 'Edit', edit_applist_path(applist) %></td>
-        <td><%= link_to 'Destroy', applist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Applist', new_applist_path %>
+<% @applists.each do |app| %>
+<div class="showapp">
+  <div class="row">
+    <div class="span2">
+      <strong><%= app.appname %></strong>
+    </div>
+    <div class="span3">
+      <p><%= app.applink %></p>
+    </div>
+    <div class="span3">
+      <p><%= app.appdescr %></p>
+    </div>
+    <div class="span2">
+       <%= link_to "Show", app %> |
+       <%= link_to "Edit", edit_applist_path(app) %> |
+       <%= link_to "Delete", app, method: :delete, data: { confirm: "Are you sure?"} %> |
+    </div>
+  </div>
+</div>
+<% end %>
