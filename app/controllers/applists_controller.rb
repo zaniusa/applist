@@ -1,4 +1,5 @@
 class ApplistsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_applist, only: [:show, :edit, :update, :destroy]
 
   # GET /applists

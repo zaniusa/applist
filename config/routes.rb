@@ -1,5 +1,5 @@
 Apptester1::Application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations'}
   resources :applists
   root to: 'applists#index'
   
