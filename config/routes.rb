@@ -1,4 +1,5 @@
 Apptester1::Application.routes.draw do
+  get "profiles/show"
   devise_for :users, controllers: { registrations: 'registrations'}
   resources :applists
   root to: 'applists#index'
