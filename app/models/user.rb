@@ -10,12 +10,9 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
 
   validates :profile_name, presence: true,
-                           uniqueness: true,
-                           format: {
-                           	with: /[a-zA-Z0-9_]+s/,
-                           	message: 'Must be formated correctly.'
-                           }
-  has_many :applinks
+                           uniqueness: true 
+                         
+  has_many :applists
 
 end
 

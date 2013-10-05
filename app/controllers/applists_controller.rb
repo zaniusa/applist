@@ -5,7 +5,7 @@ class ApplistsController < ApplicationController
   # GET /applists
   # GET /applists.json
   def index
-    @applists = Applist.all
+    @applists = current_user.applists
   end
 
   # GET /applists/1
@@ -71,5 +71,10 @@ class ApplistsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def applist_params
       params.require(:applist).permit(:applink, :appname, :appdescr)
+    end
+
+  private
+    def applist_params
+      params.require(:applist).permit(:appname, :applink, :appdescr, :user_id)
     end
 end

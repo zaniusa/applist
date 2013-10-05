@@ -3,6 +3,8 @@ Apptester1::Application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations'}
   resources :applists
   root to: 'applists#index'
+
+  get '/:id', to: 'profiles#show'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

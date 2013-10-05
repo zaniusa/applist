@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.input :applink %>
   <%= f.input :appname %>
   <%= f.input :appdescr %>
