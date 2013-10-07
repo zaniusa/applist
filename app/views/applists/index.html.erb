@@ -4,23 +4,5 @@
 
 <%= link_to "Add New App Link", new_applist_path, class: "btn btn-success" %><br /><br />
 
-<% @applists.each do |app| %>
-<div class="showapp">
-  <div class="row">
-    <div class="span2">
-      <strong><%= app.appname %></strong>
-    </div>
-    <div class="span3">
-      <p><%= app.applink %></p>
-    </div>
-    <div class="span3">
-      <p><%= app.appdescr %></p>
-    </div>
-    <div class="span2">
-       <%= link_to "Show", app %> |
-       <%= link_to "Edit", edit_applist_path(app) %> |
-       <%= link_to "Delete", app, method: :delete, data: { confirm: "Are you sure?"} %> |
-    </div>
-  </div>
-</div>
+
 <% end %>

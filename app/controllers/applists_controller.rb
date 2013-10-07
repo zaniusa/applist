@@ -63,6 +63,7 @@ class ApplistsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_applist
       @applist = Applist.find(params[:id])
@@ -70,11 +71,7 @@ class ApplistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def applist_params
-      params.require(:applist).permit(:applink, :appname, :appdescr)
-    end
-
-  private
-    def applist_params
       params.require(:applist).permit(:appname, :applink, :appdescr, :user_id)
     end
+
 end
