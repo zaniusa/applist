@@ -1,11 +1,17 @@
 Apptester1::Application.routes.draw do
+  get "home/index"
   get "profiles/show"
   devise_for :users, controllers: { registrations: 'registrations'}
   resources :applists
-  root to: 'applists#index'
+
+  devise_scope :user do
+    get 'register', to: 'devise/registrations#new', as: :register
+    get 'login', to: 'devise/sessions#new', as: :login
+    get 'logout', to: 'devise/sessions#destroy', as: :logout
+  end
 
   get '/:id', to: 'profiles#show'
-  
+  root to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
